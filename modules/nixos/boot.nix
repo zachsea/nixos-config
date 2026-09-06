@@ -1,4 +1,3 @@
-{ ... }:
 {
   fileSystems."/boot/efi" = {
     device = "/dev/disk/by-uuid/0263-FD43";

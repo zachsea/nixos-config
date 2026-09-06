@@ -1,4 +1,3 @@
-{ ... }:
 {
   users.users.zach = {
     isNormalUser = true;
