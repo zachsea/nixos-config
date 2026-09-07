@@ -14,6 +14,8 @@
     ./hotkeys.nix
     ./sops.nix
     ./mangohud.nix
+    ./prismlauncher.nix
+    ./yazi.nix
   ];
 
   home.stateVersion = stateVersion;
