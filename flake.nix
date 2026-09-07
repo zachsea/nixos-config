@@ -1,18 +1,33 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    disko.url = "github:nix-community/disko";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    pixie-sddm.url = "github:xCaptaiN09/pixie-sddm";
-    pixie-sddm.inputs.nixpkgs.follows = "nixpkgs";
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
-    lazyvim.url = "github:pfassina/lazyvim-nix";
-    lazyvim.inputs.nixpkgs.follows = "nixpkgs";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    pixie-sddm = {
+      url = "github:xCaptaiN09/pixie-sddm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak";
+    };
+    lazyvim = {
+      url = "github:pfassina/lazyvim-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
-  outputs = { self, nixpkgs, disko, home-manager, pixie-sddm, nix-flatpak, lazyvim, ... }@inputs:
+  outputs = { self, nixpkgs, disko, home-manager, pixie-sddm, nix-flatpak, lazyvim, plasma-manager, ... }@inputs:
   let
     stateVersion = "26.05"; # do NOT change after install
   in

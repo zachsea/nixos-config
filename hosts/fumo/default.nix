@@ -12,18 +12,20 @@
     ../../modules/nixos/audio.nix
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/rgb.nix
+    ../../modules/nixos/cachix.nix
   ];
 
   networking.hostName = "fumo";
   time.timeZone = "America/Los_Angeles";
 
-  services.flatpak.enable = true;
-
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit stateVersion; };
-    sharedModules = [ inputs.nix-flatpak.homeManagerModules.nix-flatpak ];
+    sharedModules = [
+      inputs.nix-flatpak.homeManagerModules.nix-flatpak
+      inputs.plasma-manager.homeModules.plasma-manager
+    ];
     users.zach = import ../../home/zach;
   };
 

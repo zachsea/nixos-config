@@ -9,6 +9,9 @@
     ./discord.nix
     ./flameshot.nix
     ./google_chrome.nix
+    ./vicinae.nix
+    ./btop.nix
+    ./hotkeys.nix
   ];
 
   home.stateVersion = stateVersion;
