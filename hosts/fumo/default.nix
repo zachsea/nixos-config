@@ -15,6 +15,7 @@
     ../../modules/nixos/cachix.nix
     ../../modules/nixos/sops.nix
     ../../modules/nixos/steam.nix
+    ../../modules/nixos/tablet.nix
   ];
 
   networking.hostName = "fumo";

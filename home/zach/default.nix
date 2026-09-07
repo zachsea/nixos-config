@@ -8,7 +8,7 @@
     ./ghostty.nix
     ./discord.nix
     ./flameshot.nix
-    ./google_chrome.nix
+    ./google-chrome.nix
     ./vicinae.nix
     ./btop.nix
     ./hotkeys.nix
@@ -16,6 +16,7 @@
     ./mangohud.nix
     ./prismlauncher.nix
     ./yazi.nix
+    ./osu-lazer.nix
   ];
 
   home.stateVersion = stateVersion;
