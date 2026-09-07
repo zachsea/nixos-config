@@ -13,6 +13,7 @@
     ./btop.nix
     ./hotkeys.nix
     ./sops.nix
+    ./mangohud.nix
   ];
 
   home.stateVersion = stateVersion;
