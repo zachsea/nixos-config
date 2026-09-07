@@ -25,9 +25,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, disko, home-manager, pixie-sddm, nix-flatpak, lazyvim, plasma-manager, ... }@inputs:
+  outputs = { self, nixpkgs, disko, home-manager, pixie-sddm, nix-flatpak, lazyvim, plasma-manager, sops-nix, ... }@inputs:
   let
     stateVersion = "26.05"; # do NOT change after install
   in
@@ -43,6 +47,7 @@
             inherit inputs stateVersion;
           };
         }
+        sops-nix.nixosModules.sops
         ./hosts/fumo
       ];
     };

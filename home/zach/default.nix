@@ -12,6 +12,7 @@
     ./vicinae.nix
     ./btop.nix
     ./hotkeys.nix
+    ./sops.nix
   ];
 
   home.stateVersion = stateVersion;

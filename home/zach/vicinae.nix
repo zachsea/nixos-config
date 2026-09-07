@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, osConfig, ... }:
 {
   programs.vicinae = {
     enable = true;
@@ -7,23 +7,15 @@
       autoStart = true;
     };
     settings = {
+      "$schema" = "https://vicinae.com/schemas/config.json";
+      imports = [ osConfig.sops.templates."vicinae-secrets.json".path];
       tray = {
         enabled = false;
       };
       close_on_focus_loss = true;
-      theme = "tokyo-night";
-    };
-    themes = {
-      tokyo-night = {
-        name = "Tokyo Night";
-        appearance = "dark";
-        colors = {
-          background = "#1a1b26";
-          foreground = "#c0caf5";
-          accent = "#7aa2f7";
-          selection = "#283457";
-          comment = "#565f89";
-          border = "#3b4261";
+      theme = {
+        dark = {
+          name = "tokyo-night";
         };
       };
     };

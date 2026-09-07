@@ -1,0 +1,17 @@
+nightscout-api-url: ENC[AES256_GCM,data:k03bv0KPfSLOFZvZVUIqv3WyRYg+,iv:h6SuXOws+aMrC1B07eCx0/1NjQqUU2lmUsO2NrVGXQ8=,tag:nboiJq22LJQd52pdaqWqJg==,type:str]
+nightscout-api-key: ENC[AES256_GCM,data:IkLRmzX5+k2ENlWo7gAtSt66VfnPokMb,iv:LnEf5tqImmMsJmK2lTSXl8LNJ5ewG7s0Kj1eSykeZBU=,tag:7vljxT25HMXSnKg51b6X0g==,type:str]
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB1a1lIVXBwNFpPRnluSDF4
+            eXo4ZnVPWUVmekRIME9mQkQ4U0E5ZE0yaVZFCnEzNHI0VktDaHlNclQreHNXblFF
+            d0gySzJ0T0lDdVN4VU1MR3JMc0JVY1kKLS0tIEhxbTJUNE1LY1V0dUhrbjRXN0Ew
+            ckErQnQ0K25RTUhWUUM2MndVdnp5TU0KSQyBytlIGp75Q4nuTuNEsNKmjIdBp560
+            R3+xjb3buVkefkptcaPWQoxRtnnoymP+rqnFRn9IISGDplmqoOwF1g==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age1w76v736tl7xchg7dvdwwz49dsy5fyd5klh0xr37t4swvv686gq9qku8rhj
+    lastmodified: "2026-09-07T08:27:44Z"
+    mac: ENC[AES256_GCM,data:gWhfcb1iMnsYupvdznZeIy8O6P6YVD2Hla4O9moqg0H4sbHZVwErS1kNhsurI4HmgflZzhS02r5cwokF7cJPbR60vvl187Y9T7jiC4rwGGgwXnuISuFGDUSAmK9twRBMlIfMM1+50Rps2tbln2kBictrDjJEMZCQNJh92jMS3mU=,iv:eO2H0MQWOJfAEMyNkLRjWl+qjrT7H1ifH1G6iglMfOo=,tag:iP5ChvbvhKLK0efkE2vgLg==,type:str]
+    unencrypted_suffix: _unencrypted
+    version: 3.13.3

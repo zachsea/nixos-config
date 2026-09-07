@@ -13,6 +13,7 @@
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/rgb.nix
     ../../modules/nixos/cachix.nix
+    ../../modules/nixos/sops.nix
   ];
 
   networking.hostName = "fumo";

@@ -1,0 +1,8 @@
+keys:
+  - &fumo age1w76v736tl7xchg7dvdwwz49dsy5fyd5klh0xr37t4swvv686gq9qku8rhj
+
+creation_rules:
+  - path_regex: sops/fumo\.yaml$
+    key_groups:
+      - age:
+          - *fumo
