@@ -1,7 +1,7 @@
 {
   programs.plasma.hotkeys = {
     commands = {
-      "vicinae-open" = {
+      vicinae-open = {
         name = "Open Vicinae Launcher";
         key = "Meta+Space";
         command = "vicinae toggle";

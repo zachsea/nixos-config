@@ -18,6 +18,8 @@
   networking.hostName = "fumo";
   time.timeZone = "America/Los_Angeles";
 
+  services.flatpak.enable = true;
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;

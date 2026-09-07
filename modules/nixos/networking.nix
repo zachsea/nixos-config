@@ -1,6 +1,31 @@
+{ config, ... }:
 {
-  networking.networkmanager.enable = true;
-  services.openssh.enable = true;
-  services.openssh.settings.PermitRootLogin = "no";
-  services.openssh.settings.PasswordAuthentication = false;
+  services = {
+    tailscale = {
+      enable = true;
+    };
+    openssh = {
+      enable = true;
+      settings = {
+        PermitRootLogin = "no";
+        PasswordAuthentication = false;
+      };
+    };
+  };
+
+  networking = {
+    networkmanager.enable = true;
+    nftables.enable = true;
+    firewall = {
+      enable = true;
+      trustedInterfaces = [ config.services.tailscale.interfaceName ];
+      allowedUDPPorts = [ config.services.tailscale.port ];
+    };
+  };
+  systemd.services.tailscaled.serviceConfig.Environment = [
+    "TS_DEBUG_FIREWALL_MODE=nftables"
+  ];
+
+  systemd.network.wait-online.enable = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
 }
