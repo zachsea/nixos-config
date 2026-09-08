@@ -9,5 +9,13 @@
     shortcuts = {
       "services/plasma-manager-commands.desktop".vicinae = "Meta+Space";
     };
+
+    spectacle = {
+      shortcuts = {
+        captureEntireDesktop = "Print";
+        captureRectangularRegion = "Ctrl+Print";
+        recordRegion = "Ctrl+Shift+Print";
+      };
+    };
   };
 }
