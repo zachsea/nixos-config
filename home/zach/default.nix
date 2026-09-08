@@ -7,7 +7,6 @@
     ./lazyvim.nix
     ./ghostty.nix
     ./discord.nix
-    ./flameshot.nix
     ./google-chrome.nix
     ./vicinae.nix
     ./btop.nix
