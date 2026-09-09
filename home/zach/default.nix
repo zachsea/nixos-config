@@ -17,6 +17,7 @@
     ./yazi.nix
     ./osu-lazer.nix
     ./unrar.nix
+    ./flstudio.nix
   ];
 
   home.stateVersion = stateVersion;
