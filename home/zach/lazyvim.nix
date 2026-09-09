@@ -1,4 +1,9 @@
-{ pkgs, inputs, lib, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 {
   imports = [
     inputs.lazyvim.homeManagerModules.default
@@ -28,8 +33,8 @@
     };
 
     extraPackages = with pkgs; [
-      nixd       # Nix LSP
-      alejandra  # Nix formatter
+      nil # Nix LSP
+      alejandra # Nix formatter
       statix
     ];
 

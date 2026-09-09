@@ -16,6 +16,7 @@
     ./prismlauncher.nix
     ./yazi.nix
     ./osu-lazer.nix
+    ./unrar.nix
   ];
 
   home.stateVersion = stateVersion;
