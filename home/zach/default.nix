@@ -17,6 +17,10 @@
     ./yazi.nix
     ./osu-lazer.nix
     ./unrar.nix
+    ./fooyin.nix
+    ./mpv.nix
+    ./vlc.nix
+    ./kolourpaint.nix
   ];
 
   home.stateVersion = stateVersion;
