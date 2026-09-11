@@ -23,6 +23,8 @@
     ./vlc.nix
     ./kolourpaint.nix
     ./fastfetch.nix
+    ./streamlink.nix
+    ./chatterino7.nix
   ];
 
   home.stateVersion = stateVersion;
