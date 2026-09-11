@@ -1,6 +1,7 @@
 { stateVersion, ... }:
 {
   imports = [
+    ./shell.nix
     ./git.nix
     ./ssh.nix
     ./flatpak.nix
@@ -21,6 +22,7 @@
     ./mpv.nix
     ./vlc.nix
     ./kolourpaint.nix
+    ./fastfetch.nix
   ];
 
   home.stateVersion = stateVersion;
