@@ -29,13 +29,21 @@
           installDependencies = true;
           installRuntimeDependencies = true;
         };
+        # qml is not in extras, entries added in treesitterParsers, extraPackages, plugins
       };
     };
+
+    treesitterParsers = with pkgs.vimPlugins.nvim-treesitter-parsers; [
+      qmljs
+      qmldir # optional: for qmldir module-manifest files
+    ];
 
     extraPackages = with pkgs; [
       nil # Nix LSP
       alejandra # Nix formatter
       statix
+
+      kdePackages.qtdeclarative
     ];
 
     config = {
@@ -117,6 +125,16 @@
           persist_size = true;
           close_on_exit = true;
           shade_terminals = true;
+        };
+      };
+      qml = inputs.lazyvim.lib.lazyConfig {
+        plugin = "neovim/nvim-lspconfig";
+        opts.servers.qmlls = {
+          cmd = [
+            "qmlls"
+            "-E"
+          ]; # -E: read import paths from QML_IMPORT_PATH/QML2_IMPORT_PATH
+          mason = false;
         };
       };
     };
