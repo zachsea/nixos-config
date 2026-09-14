@@ -45,6 +45,30 @@
     };
 
     plugins = {
+      ccc = inputs.lazyvim.lib.lazyConfig {
+        plugin = "uga-rosa/ccc.nvim";
+        event = [
+          "BufReadPre"
+          "BufNewFile"
+        ];
+        cmd = [
+          "CccPick"
+          "CccConvert"
+          "CccHighlighterToggle"
+        ];
+        keys = lib.generators.mkLuaInline ''
+          {
+            { "<leader>cc", "<cmd>CccPick<cr>", desc = "Color Picker" },
+            { "<leader>ch", "<cmd>CccHighlighterToggle<cr>", desc = "Toggle Color Highlighter" },
+          }
+        '';
+        opts = {
+          highlighter = {
+            auto_enable = true;
+            lsp = true;
+          };
+        };
+      };
       colorscheme = inputs.lazyvim.lib.lazyConfig {
         plugin = "folke/tokyonight.nvim";
         opts = {
