@@ -2,6 +2,7 @@
 {
   imports = [
     ./shell.nix
+    ./hyprland.nix
     ./git.nix
     ./ssh.nix
     ./flatpak.nix
@@ -25,6 +26,7 @@
     ./fastfetch.nix
     ./streamlink.nix
     ./chatterino7.nix
+    ./obsidian.nix
   ];
 
   home.stateVersion = stateVersion;
