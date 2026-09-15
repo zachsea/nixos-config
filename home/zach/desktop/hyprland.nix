@@ -38,6 +38,12 @@
           vrr = 1;
         }
       ];
+      config = {
+        input = {
+          accel_profile = "flat";
+          force_no_accel = true;
+        };
+      };
     };
   };
 

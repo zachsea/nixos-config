@@ -10,6 +10,7 @@
     ./mpv.nix
     ./obsidian.nix
     ./osu-lazer.nix
+    ./polychromatic.nix
     ./prismlauncher.nix
     ./vlc.nix
   ];

@@ -9,6 +9,7 @@
       "wheel"
       "input"
       "networkmanager"
+      "openrazer"
     ];
     initialPassword = "changeme";
     shell = pkgs.zsh;
