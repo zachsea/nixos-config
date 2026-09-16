@@ -17,6 +17,7 @@
     ../../modules/nixos/steam.nix
     ../../modules/nixos/tablet.nix
     ../../modules/nixos/wine.nix
+    ../../modules/nixos/bluetooth.nix
   ];
 
   networking.hostName = "fumo";

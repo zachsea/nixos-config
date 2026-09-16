@@ -5,7 +5,7 @@
     ./hotkeys.nix
     ./hyprland.nix
     ./lazyvim.nix
-    ./quickshell
+    ./noctalia.nix
     ./shell.nix
     ./ssh.nix
     ./starship.nix

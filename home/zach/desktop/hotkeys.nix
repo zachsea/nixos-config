@@ -56,7 +56,7 @@ in
 
     (bind "SUPER + A" (exec "pwvucontrol")) # temp
 
-    (bind "SUPER + SPACE" (exec "vicinae toggle"))
+    (bind "SUPER + ALT + SPACE" (exec "vicinae toggle"))
 
     # focus / swap by direction (hjkl)
     (bind "SUPER + H" (focus "left"))
@@ -77,15 +77,25 @@ in
     (bind "SUPER + TAB" toggleLayout)
 
     # monitor / workspace-to-monitor
-    (bind "SUPER + CTRL + S" ''hl.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "r" })'')
-    (bind "SUPER + SHIFT + comma" ''hl.dsp.workspace.move({ monitor = "l" })'')
-    (bind "SUPER + SHIFT + period" ''hl.dsp.workspace.move({ monitor = "r" })'')
+    # (bind "SUPER + CTRL + S" ''hl.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "r" })'')
+    # ^ this doesn't do what I want, need to fix later
 
     # mouse
     (bindf "SUPER + mouse:272" "hl.dsp.window.drag()" { mouse = true; })
     (bindf "SUPER + mouse:273" "hl.dsp.window.resize()" { mouse = true; })
     (bind "SUPER + mouse_down" ''hl.dsp.focus({ workspace = "e+1" })'')
     (bind "SUPER + mouse_up" ''hl.dsp.focus({ workspace = "e-1" })'')
+
+    # noctalia
+    (bind "SUPER + SPACE" (exec "noctalia msg panel-toggle launcher"))
+    (bind "SUPER + S" (exec "noctalia msg panel-toggle control-center"))
+    (bind "SUPER + COMMA" (exec "noctalia msg settings-toggle"))
+    (bind "ALT + TAB" (exec "noctalia msg window-switcher"))
+    (bind "XF86AudioRaiseVolume" (exec "noctalia msg volume-up"))
+    (bind "XF86AudioLowerVolume" (exec "noctalia msg volume-down"))
+    (bind "XF86AudioMute" (exec "noctalia msg volume-mute"))
+    (bind "XF86MonBrightnessUp" (exec "noctalia msg brightness-up"))
+    (bind "XF86MonBrightnessDown" (exec "noctalia msg brightness-down"))
   ]
   ++ wsBinds;
 
