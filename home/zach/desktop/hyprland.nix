@@ -1,7 +1,10 @@
 # binds currently live in ./hotkeys.nix
 { pkgs, lib, ... }:
 {
-  home.packages = [ pkgs.pwvucontrol ];
+  home.packages = with pkgs; [
+    pwvucontrol
+    hyprpicker
+  ];
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -17,7 +20,7 @@
           "hyprland.start"
           (lib.generators.mkLuaInline ''
             function()
-              hl.exec_cmd("noctalia-shell")
+              hl.exec_cmd("noctalia -d")
             end
           '')
         ];

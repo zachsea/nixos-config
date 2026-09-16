@@ -12,6 +12,7 @@
     ./osu-lazer.nix
     ./polychromatic.nix
     ./prismlauncher.nix
+    ./spotify.nix
     ./vlc.nix
   ];
 }

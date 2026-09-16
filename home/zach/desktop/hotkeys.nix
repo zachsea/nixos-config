@@ -96,6 +96,10 @@ in
     (bind "XF86AudioMute" (exec "noctalia msg volume-mute"))
     (bind "XF86MonBrightnessUp" (exec "noctalia msg brightness-up"))
     (bind "XF86MonBrightnessDown" (exec "noctalia msg brightness-down"))
+
+    # screenshots
+    (bind "PRINT" (exec "noctalia msg screenshot-fullscreen all"))
+    (bind "CTRL + PRINT" (exec "noctalia msg screenshot-region"))
   ]
   ++ wsBinds;
 

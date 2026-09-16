@@ -18,6 +18,8 @@
     ../../modules/nixos/tablet.nix
     ../../modules/nixos/wine.nix
     ../../modules/nixos/bluetooth.nix
+    ../../modules/nixos/razer.nix
+    ../../modules/nixos/smartctl.nix
   ];
 
   networking.hostName = "fumo";
