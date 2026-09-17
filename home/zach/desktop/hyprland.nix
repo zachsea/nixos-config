@@ -138,7 +138,7 @@
             enabled = true;
             range = 4;
             render_power = 3;
-            color = lib.generators.mkLuaInline "0xee1a1a1a";
+            # color = lib.generators.mkLuaInline "0xee1a1a1a"; # controlled by stylix
           };
 
           blur = {

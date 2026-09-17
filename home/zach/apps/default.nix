@@ -5,7 +5,7 @@
     ./flatpak.nix
     ./fooyin.nix
     ./google-chrome.nix
-    ./kolourpaint.nix
+    ./kde.nix
     ./mangohud.nix
     ./mpv.nix
     ./obsidian.nix

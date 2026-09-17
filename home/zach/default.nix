@@ -4,6 +4,7 @@
     ./apps
     ./cli
     ./desktop
+    ./stylix.nix
   ];
   home.sessionVariables = {
     EDITOR = "nvim";

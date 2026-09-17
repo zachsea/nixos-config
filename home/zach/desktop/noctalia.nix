@@ -33,12 +33,12 @@
         };
       };
 
-      theme = {
-        mode = "dark";
-        shell_mode = "follow";
-        source = "builtin";
-        builtin = "Tokyo-Night";
-      };
+      #theme = {
+      #  mode = "dark";
+      #  shell_mode = "follow";
+      #  source = "builtin";
+      #  builtin = "Tokyo-Night";
+      #};
 
       wallpaper = {
         enabled = true;

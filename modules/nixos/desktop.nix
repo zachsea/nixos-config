@@ -1,4 +1,9 @@
-{ pkgs, lib, inputs, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 {
   programs.hyprland.enable = true;
   services.desktopManager.plasma6.enable = true;
@@ -7,7 +12,7 @@
     enable = true;
     wayland.enable = true;
     theme = "pixie";
-    package = lib.mkForce pkgs.kdePackages.sddm; 
+    package = lib.mkForce pkgs.kdePackages.sddm;
     extraPackages = [
       pkgs.kdePackages.qtsvg
       pkgs.kdePackages.qtdeclarative
@@ -24,7 +29,7 @@
       autoColor = true;
       # accentColor = "#3F5F91";
       # backgroundColor = "#1A1C1E";
-      # textColor = "#E2E2E6";         
+      # textColor = "#E2E2E6";
       # fontFamily = "JetBrains Mono";
     })
   ];

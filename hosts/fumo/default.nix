@@ -34,6 +34,7 @@
     sharedModules = [
       inputs.nix-flatpak.homeManagerModules.nix-flatpak
       inputs.plasma-manager.homeModules.plasma-manager
+      inputs.stylix.homeModules.stylix
     ];
     users.zach = import ../../home/zach;
   };

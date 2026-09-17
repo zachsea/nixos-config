@@ -29,27 +29,45 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
-
-  outputs = { self, nixpkgs, disko, home-manager, pixie-sddm, nix-flatpak, lazyvim, plasma-manager, sops-nix, ... }@inputs:
-  let
-    stateVersion = "26.05"; # do NOT change after install
-  in
-  {
-    nixosConfigurations.fumo = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs stateVersion; };
-      modules = [
-        disko.nixosModules.disko
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.extraSpecialArgs = {
-            inherit inputs stateVersion;
-          };
-        }
-        sops-nix.nixosModules.sops
-        ./hosts/fumo
-      ];
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
+  outputs =
+    {
+      self,
+      nixpkgs,
+      disko,
+      home-manager,
+      pixie-sddm,
+      nix-flatpak,
+      lazyvim,
+      plasma-manager,
+      sops-nix,
+      stylix,
+      ...
+    }@inputs:
+    let
+      stateVersion = "26.05"; # do NOT change after install
+    in
+    {
+      nixosConfigurations.fumo = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs stateVersion; };
+        modules = [
+          disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = {
+              inherit inputs stateVersion;
+            };
+          }
+          sops-nix.nixosModules.sops
+          stylix.nixosModules.stylix
+          ./hosts/fumo
+        ];
+      };
+    };
 }

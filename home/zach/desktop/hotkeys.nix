@@ -56,8 +56,6 @@ in
 
     (bind "SUPER + A" (exec "pwvucontrol")) # temp
 
-    (bind "SUPER + ALT + SPACE" (exec "vicinae toggle"))
-
     # focus / swap by direction (hjkl)
     (bind "SUPER + H" (focus "left"))
     (bind "SUPER + J" (focus "down"))
@@ -105,15 +103,6 @@ in
 
   programs.plasma = {
     enable = true;
-    hotkeys.commands."vicinae" = {
-      name = "Vicinae";
-      key = "Meta+Space";
-      command = "vicinae toggle";
-    };
-    shortcuts = {
-      "services/plasma-manager-commands.desktop".vicinae = "Meta+Space";
-    };
-
     spectacle = {
       shortcuts = {
         captureEntireDesktop = "Print";
