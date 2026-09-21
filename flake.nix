@@ -33,6 +33,10 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-std = {
+      url = "github:chessai/nix-std";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -47,21 +51,23 @@
       plasma-manager,
       sops-nix,
       stylix,
+      nix-std,
       ...
     }@inputs:
     let
       stateVersion = "26.05"; # do NOT change after install
+      std = nix-std.lib;
     in
     {
       nixosConfigurations.fumo = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs stateVersion; };
+        specialArgs = { inherit inputs stateVersion std; };
         modules = [
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {
-              inherit inputs stateVersion;
+              inherit inputs stateVersion std;
             };
           }
           sops-nix.nixosModules.sops

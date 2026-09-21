@@ -1,5 +1,7 @@
 nightscout-api-url: ENC[AES256_GCM,data:k03bv0KPfSLOFZvZVUIqv3WyRYg+,iv:h6SuXOws+aMrC1B07eCx0/1NjQqUU2lmUsO2NrVGXQ8=,tag:nboiJq22LJQd52pdaqWqJg==,type:str]
 nightscout-api-key: ENC[AES256_GCM,data:IkLRmzX5+k2ENlWo7gAtSt66VfnPokMb,iv:LnEf5tqImmMsJmK2lTSXl8LNJ5ewG7s0Kj1eSykeZBU=,tag:7vljxT25HMXSnKg51b6X0g==,type:str]
+homeassistant-api-url: ENC[AES256_GCM,data:lMaEpaBAT0p9yRxpf2QMuNXnICCT0UCM,iv:AgXtyNbLPdTa3FxjupnWq+QFLoCxkS8ZvstB7F15exM=,tag:QH1JrUXS5PJ/Ek5qKBIcPA==,type:str]
+homeassistant-api-key: ENC[AES256_GCM,data:c59nm9IOfulPAmJbJwkzlSvCW8ZPaeWtS0WF82a0BDVEUV+hISy202+IfIv0eaNdwfMe5iVaWKSlDcqh1JVBvDMi1D7I2OwwME77LGpf3BGaCnQqNcXGa2yE8O4mr4lZIBm/O3Qcj7Hff7D9gPckQsFrT6QJAXOXkFRrf4SMLxq8/br4EBhBhsgx/7YSdIUuoP9SamxIzZp6idJEmHpr77o3LdX6Nn2Pwd2A3kS+wvHCSt7M/lnO,iv:LkLC1mzZ7YhVbMgC9KevvlKaab0MJtHuxEknbreP5pQ=,tag:4VlhUQ1Ao3epX48cHDn9Ug==,type:str]
 sops:
     age:
         - enc: |
@@ -11,7 +13,7 @@ sops:
             R3+xjb3buVkefkptcaPWQoxRtnnoymP+rqnFRn9IISGDplmqoOwF1g==
             -----END AGE ENCRYPTED FILE-----
           recipient: age1w76v736tl7xchg7dvdwwz49dsy5fyd5klh0xr37t4swvv686gq9qku8rhj
-    lastmodified: "2026-09-07T08:27:44Z"
-    mac: ENC[AES256_GCM,data:gWhfcb1iMnsYupvdznZeIy8O6P6YVD2Hla4O9moqg0H4sbHZVwErS1kNhsurI4HmgflZzhS02r5cwokF7cJPbR60vvl187Y9T7jiC4rwGGgwXnuISuFGDUSAmK9twRBMlIfMM1+50Rps2tbln2kBictrDjJEMZCQNJh92jMS3mU=,iv:eO2H0MQWOJfAEMyNkLRjWl+qjrT7H1ifH1G6iglMfOo=,tag:iP5ChvbvhKLK0efkE2vgLg==,type:str]
+    lastmodified: "2026-09-21T06:32:46Z"
+    mac: ENC[AES256_GCM,data:eN0MFwDKqGe/9GiDWgZfDaJpTPhnalW/VNqp72IsqHyAaehF5fvrByAJejIt/RSmGND58CoQNuAfqhbstz13G7Q0zJkp3DVShMg0gJW9gvMbXjIlmUQfzn8nI9mUF/I7gmF20KG9yxatiSSekDV6FHJXc+euGhaCsgFUWBy6GzM=,iv:rOlRtSkWqq6i0mBOgGdZXOgld/8QzYayAY4HJhOAiCc=,tag:sLcuxNX7MgtFdBP39GhaiQ==,type:str]
     unencrypted_suffix: _unencrypted
     version: 3.13.3

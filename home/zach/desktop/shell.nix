@@ -24,7 +24,7 @@
 
       shellAliases = {
         ll = "ls -alh";
-        update = "sudo nixos-rebuild switch --flake .#fumo";
+        update = "sudo nixos-rebuild switch";
       };
 
       initContent = ''
