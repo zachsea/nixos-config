@@ -6,6 +6,7 @@
     ./fooyin.nix
     ./google-chrome.nix
     ./kde.nix
+    ./libreoffice.nix
     ./mangohud.nix
     ./mpv.nix
     ./obsidian.nix

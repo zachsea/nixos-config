@@ -11,7 +11,6 @@
       plugins = {
         enabled = [
           "oldirtty/color_picker"
-          "gustav0ar/drive-health"
           "nightwatch75/file-search"
           "pozzoo/hassio"
           "avivbintangaringga/nix-monitor"
@@ -32,13 +31,6 @@
           freeze_screen = true;
         };
       };
-
-      #theme = {
-      #  mode = "dark";
-      #  shell_mode = "follow";
-      #  source = "builtin";
-      #  builtin = "Tokyo-Night";
-      #};
 
       wallpaper = {
         enabled = true;

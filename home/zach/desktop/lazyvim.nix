@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   lib,
+  config,
   ...
 }:
 {
@@ -86,6 +87,29 @@
             sidebars = "transparent";
             floats = "transparent";
           };
+          on_colors = lib.generators.mkLuaInline (
+            let
+              c = config.lib.stylix.colors.withHashtag;
+            in
+            ''
+              function(colors)
+                colors.bg = "${c.base00}"
+                colors.bg_dark = "${c.base01}"
+                colors.bg_highlight = "${c.base02}"
+                colors.fg = "${c.base05}"
+                colors.fg_dark = "${c.base04}"
+                colors.comment = "${c.base03}"
+                colors.red = "${c.base08}"
+                colors.orange = "${c.base09}"
+                colors.yellow = "${c.base0A}"
+                colors.green = "${c.base0B}"
+                colors.cyan = "${c.base0C}"
+                colors.blue = "${c.base0D}"
+                colors.magenta = "${c.base0E}"
+                colors.purple = "${c.base0E}"
+              end
+            ''
+          );
         };
       };
       presence = inputs.lazyvim.lib.lazyConfig {

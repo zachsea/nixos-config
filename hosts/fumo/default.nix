@@ -20,6 +20,7 @@
     ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/razer.nix
     ../../modules/nixos/smartctl.nix
+    ../../modules/nixos/usb.nix
   ];
 
   networking.hostName = "fumo";
