@@ -24,7 +24,8 @@
 
       shellAliases = {
         ll = "ls -alh";
-        update = "sudo nixos-rebuild switch";
+        nixrs = "sudo nixos-rebuild switch";
+        nixup = "nix flake update --flake /etc/nixos/ nixpkgs";
       };
 
       initContent = ''

@@ -1,6 +1,7 @@
 {
   imports = [
     ./noctalia
+    ./bottles.nix
     ./btop.nix
     ./ghostty.nix
     ./hotkeys.nix
