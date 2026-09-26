@@ -1,5 +1,6 @@
 {
   imports = [
+    ./direnv.nix
     ./fastfetch.nix
     ./fzf.nix
     ./git.nix
