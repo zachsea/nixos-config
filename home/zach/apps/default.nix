@@ -9,6 +9,7 @@
     ./libreoffice.nix
     ./mangohud.nix
     ./mpv.nix
+    ./obs.nix
     ./obsidian.nix
     ./osu-lazer.nix
     ./polychromatic.nix

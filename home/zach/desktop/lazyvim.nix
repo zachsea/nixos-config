@@ -30,6 +30,11 @@
           installDependencies = true;
           installRuntimeDependencies = true;
         };
+        clangd = {
+          enable = true;
+          installDependencies = true;
+          installRuntimeDependencies = true;
+        };
         # qml is not in extras, entries added in treesitterParsers, extraPackages, plugins
       };
     };
@@ -44,7 +49,10 @@
       alejandra # Nix formatter
       statix
 
+      # qml
       kdePackages.qtdeclarative
+      # cpp
+      clang-tools
     ];
 
     config = {
@@ -161,6 +169,20 @@
           mason = false;
         };
       };
+      conform = inputs.lazyvim.lib.lazyConfig {
+        plugin = "stevearc/conform.nvim";
+        opts = {
+          formatters_by_ft = {
+            c = [ "clang-format" ];
+            cpp = [ "clang-format" ];
+          };
+        };
+      };
     };
   };
+  # clang stuff
+  home.file.".clang-format".text = ''
+    BasedOnStyle: LLVM
+    PointerAlignment: Left
+  '';
 }
