@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   services.pipewire = {
     enable = true;
@@ -15,4 +16,9 @@
     };
   };
   security.rtkit.enable = true;
+
+  # audio utils
+  environment.systemPackages = with pkgs; [
+    alsa-utils
+  ];
 }
