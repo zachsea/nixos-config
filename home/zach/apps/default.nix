@@ -1,5 +1,6 @@
 {
   imports = [
+    ./aseprite.nix
     ./chatterino7.nix
     ./discord.nix
     ./flatpak.nix

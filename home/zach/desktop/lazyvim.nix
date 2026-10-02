@@ -35,6 +35,12 @@
           installDependencies = true;
           installRuntimeDependencies = true;
         };
+        cmake = {
+          enable = true;
+          # seems not mapped correctly, listed below
+          # installDependencies = true;
+          installRuntimeDependencies = true;
+        };
         # qml is not in extras, entries added in treesitterParsers, extraPackages, plugins
       };
     };
@@ -53,6 +59,9 @@
       kdePackages.qtdeclarative
       # cpp
       clang-tools
+      # cmake
+      cmake-format
+      cmake-lint
     ];
 
     config = {
@@ -175,6 +184,7 @@
           formatters_by_ft = {
             c = [ "clang-format" ];
             cpp = [ "clang-format" ];
+            cmake = [ "cmake_format" ];
           };
         };
       };
