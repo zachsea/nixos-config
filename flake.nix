@@ -36,6 +36,10 @@
     nix-std = {
       url = "github:chessai/nix-std";
     };
+    wayimg = {
+      url = "github:zachsea/wayimg";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -51,6 +55,7 @@
       sops-nix,
       stylix,
       nix-std,
+      wayimg,
       ...
     }@inputs:
     let

@@ -11,6 +11,7 @@
     ./shell.nix
     ./ssh.nix
     ./starship.nix
+    ./wayimg.nix
     ./yazi.nix
   ];
 }
