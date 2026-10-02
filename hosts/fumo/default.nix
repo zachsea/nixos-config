@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ./mounts.nix
+    ./overlays.nix
     ../../modules/nixos/boot.nix
     ../../modules/nixos/nvidia.nix
     ../../modules/nixos/networking.nix

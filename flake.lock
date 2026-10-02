@@ -571,11 +571,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790925618,
-        "narHash": "sha256-MBEZG2Obdv60Rj4tVbJcIsZS5wWXZPgefcgPtIQ+oFc=",
+        "lastModified": 1790926328,
+        "narHash": "sha256-MILX+31F6HADlx+1PBuI983gBB2PFrmRLHS/TJn/JR8=",
         "owner": "zachsea",
         "repo": "wayimg",
-        "rev": "bfb2188733fa6bf414c3b32ef1f1fe4c4b5fc63a",
+        "rev": "01632e78b7bb6ff9f0c3eb17606efb869d47de7e",
         "type": "github"
       },
       "original": {
