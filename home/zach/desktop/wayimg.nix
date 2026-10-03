@@ -22,7 +22,7 @@ let
     "image/x-portable-pixmap"
     "image/x-portable-graymap"
     "image/x-portable-bitmap"
-    "image/svg+xml" # probably not good
+    # "image/svg+xml"  # left out: SDL3_image's SVG support is basic
   ];
 in
 {
