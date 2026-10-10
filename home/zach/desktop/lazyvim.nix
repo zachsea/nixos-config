@@ -15,10 +15,9 @@
 
     extras = {
       lang = {
+        # dependencies from extraPackages below
         nix = {
           enable = true;
-          installDependencies = true;
-          installRuntimeDependencies = true;
         };
         python = {
           enable = true;
@@ -33,15 +32,39 @@
         clangd = {
           enable = true;
           installDependencies = true;
-          installRuntimeDependencies = true;
         };
+        # dependencies from extraPackages below
         cmake = {
           enable = true;
-          # seems not mapped correctly, listed below
-          # installDependencies = true;
-          installRuntimeDependencies = true;
+        };
+        typescript = {
+          enable = true;
+          vtsls = {
+            enable = true;
+            installDependencies = true;
+            installRuntimeDependencies = true;
+          };
+        };
+        # dependencies from extraPackages below
+        astro = {
+          enable = true;
         };
         # qml is not in extras, entries added in treesitterParsers, extraPackages, plugins
+      };
+
+      formatting = {
+        prettier = {
+          enable = true;
+          installDependencies = true;
+          installRuntimeDependencies = true;
+        };
+      };
+
+      linting = {
+        eslint = {
+          enable = true;
+          installDependencies = true;
+        };
       };
     };
 
@@ -51,17 +74,22 @@
     ];
 
     extraPackages = with pkgs; [
-      nil # Nix LSP
-      alejandra # Nix formatter
+      # nix (LazyVim's nix extra: nil_ls + statix; formatter is wired in conform below)
+      nil
       statix
+      alejandra
 
       # qml
       kdePackages.qtdeclarative
-      # cpp
-      clang-tools
-      # cmake
+
+      # cmake (neocmake LSP + formatter/linter for the cmake extra)
+      neocmakelsp
       cmake-format
       cmake-lint
+
+      # astro LSP, and the eslint LSP
+      astro-language-server
+      vscode-langservers-extracted
     ];
 
     config = {
@@ -180,12 +208,9 @@
       };
       conform = inputs.lazyvim.lib.lazyConfig {
         plugin = "stevearc/conform.nvim";
-        opts = {
-          formatters_by_ft = {
-            c = [ "clang-format" ];
-            cpp = [ "clang-format" ];
-            cmake = [ "cmake_format" ];
-          };
+        opts.formatters_by_ft = {
+          cmake = [ "cmake_format" ];
+          nix = [ "alejandra" ];
         };
       };
     };
