@@ -4,8 +4,7 @@
   lib,
   config,
   ...
-}:
-{
+}: {
   imports = [
     inputs.lazyvim.homeManagerModules.default
   ];
@@ -135,8 +134,7 @@
           on_colors = lib.generators.mkLuaInline (
             let
               c = config.lib.stylix.colors.withHashtag;
-            in
-            ''
+            in ''
               function(colors)
                 colors.bg = "${c.base00}"
                 colors.bg_dark = "${c.base01}"
@@ -206,11 +204,15 @@
           mason = false;
         };
       };
+      astro = inputs.lazyvim.lib.lazyConfig {
+        plugin = "neovim/nvim-lspconfig";
+        opts.servers.astro.mason = false;
+      };
       conform = inputs.lazyvim.lib.lazyConfig {
         plugin = "stevearc/conform.nvim";
         opts.formatters_by_ft = {
-          cmake = [ "cmake_format" ];
-          nix = [ "alejandra" ];
+          cmake = ["cmake_format"];
+          nix = ["alejandra"];
         };
       };
     };
