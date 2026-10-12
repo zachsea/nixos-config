@@ -4,10 +4,21 @@
   lib,
   config,
   ...
-}: {
+}: let
+  astroLs = "${pkgs.astro-language-server}/lib/node_modules/astro-language-server";
+  astroMasonPackage = pkgs.runCommand "astro-language-server-mason" {} ''
+    mkdir -p $out/node_modules/@astrojs
+    ln -s ${astroLs}/packages/language-tools/ts-plugin $out/node_modules/@astrojs/ts-plugin
+  '';
+
+  fallbackTsdk = "${pkgs.vscode-langservers-extracted}/lib/extensions/node_modules/typescript/lib";
+in {
   imports = [
     inputs.lazyvim.homeManagerModules.default
   ];
+
+  xdg.dataFile."${config.programs.lazyvim.appName}/mason/packages/astro-language-server".source =
+    astroMasonPackage;
 
   programs.lazyvim = {
     enable = true;
@@ -48,6 +59,10 @@
         astro = {
           enable = true;
         };
+        # dependencies from extraPackages below
+        tailwind = {
+          enable = true;
+        };
         # qml is not in extras, entries added in treesitterParsers, extraPackages, plugins
       };
 
@@ -73,10 +88,9 @@
     ];
 
     extraPackages = with pkgs; [
-      # nix (LazyVim's nix extra: nil_ls + statix; formatter is wired in conform below)
+      # nix
       nil
       statix
-      alejandra
 
       # qml
       kdePackages.qtdeclarative
@@ -89,6 +103,9 @@
       # astro LSP, and the eslint LSP
       astro-language-server
       vscode-langservers-extracted
+
+      # tailwind LSP
+      tailwindcss-language-server
     ];
 
     config = {
@@ -206,13 +223,31 @@
       };
       astro = inputs.lazyvim.lib.lazyConfig {
         plugin = "neovim/nvim-lspconfig";
-        opts.servers.astro.mason = false;
+        opts.servers.astro = {
+          mason = false;
+          before_init = lib.generators.mkLuaInline ''
+            function(_, config)
+              local ts = config.init_options and config.init_options.typescript
+              if not ts or (ts.tsdk and ts.tsdk ~= "") then
+                return
+              end
+              local root = config.root_dir or vim.uv.cwd()
+              for dir in vim.fs.parents(root .. "/_") do
+                local lib = dir .. "/node_modules/typescript/lib"
+                if vim.uv.fs_stat(lib) then
+                  ts.tsdk = lib
+                  return
+                end
+              end
+              ts.tsdk = "${fallbackTsdk}"
+            end
+          '';
+        };
       };
       conform = inputs.lazyvim.lib.lazyConfig {
         plugin = "stevearc/conform.nvim";
         opts.formatters_by_ft = {
           cmake = ["cmake_format"];
-          nix = ["alejandra"];
         };
       };
     };
