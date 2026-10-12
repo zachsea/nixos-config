@@ -5,6 +5,7 @@
     ./discord.nix
     ./flatpak.nix
     ./fooyin.nix
+    ./ghidra.nix
     ./google-chrome.nix
     ./kde.nix
     ./libreoffice.nix
