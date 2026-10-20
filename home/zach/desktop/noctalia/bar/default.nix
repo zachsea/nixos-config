@@ -10,6 +10,7 @@
       "widget"
       "nix-monitor"
       "status"
+      "monitor"
       "volume"
       "input_volume"
       "group:g1"
@@ -61,6 +62,9 @@
     };
     status = {
       type = "pozzoo/hassio:status";
+    };
+    monitor = {
+      type = "nuddel69/nightscout-monitor:monitor";
     };
     widget = {
       type = "oldirtty/color_picker:widget";

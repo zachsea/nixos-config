@@ -31,5 +31,16 @@
       owner = "zach";
       mode = "0400";
     };
+    templates."noctalia-nightscout.toml" = {
+      content = std.serde.toTOML {
+        plugin_settings."nuddel69/nightscout-monitor" = {
+          host = config.sops.placeholder.nightscout-api-url;
+          api-secret = config.sops.placeholder.nightscout-api-key;
+        };
+      };
+      path = "/home/zach/.config/noctalia/secrets-nightscout.toml";
+      owner = "zach";
+      mode = "0400";
+    };
   };
 }

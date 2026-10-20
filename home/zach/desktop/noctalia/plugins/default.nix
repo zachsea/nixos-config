@@ -3,6 +3,7 @@
     ./color-picker.nix
     ./file-search.nix
     ./hassio.nix
+    ./nightscout.nix
     ./nix-monitor.nix
     ./nvtop.nix
     ./prismlauncher-instances.nix
