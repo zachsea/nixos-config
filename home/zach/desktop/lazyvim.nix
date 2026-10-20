@@ -4,15 +4,18 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   astroLs = "${pkgs.astro-language-server}/lib/node_modules/astro-language-server";
-  astroMasonPackage = pkgs.runCommand "astro-language-server-mason" {} ''
+  astroMasonPackage = pkgs.runCommand "astro-language-server-mason" { } ''
     mkdir -p $out/node_modules/@astrojs
     ln -s ${astroLs}/packages/language-tools/ts-plugin $out/node_modules/@astrojs/ts-plugin
   '';
 
   fallbackTsdk = "${pkgs.vscode-langservers-extracted}/lib/extensions/node_modules/typescript/lib";
-in {
+  luauPlatform = "standard";
+in
+{
   imports = [
     inputs.lazyvim.homeManagerModules.default
   ];
@@ -85,28 +88,39 @@ in {
     treesitterParsers = with pkgs.vimPlugins.nvim-treesitter-parsers; [
       qmljs
       qmldir # optional: for qmldir module-manifest files
+      luau
     ];
 
-    extraPackages = with pkgs; [
-      # nix
-      nil
-      statix
+    extraPackages =
+      with pkgs;
+      [
+        # nix
+        nil
+        statix
 
-      # qml
-      kdePackages.qtdeclarative
+        # qml
+        kdePackages.qtdeclarative
 
-      # cmake (neocmake LSP + formatter/linter for the cmake extra)
-      neocmakelsp
-      cmake-format
-      cmake-lint
+        # cmake (neocmake LSP + formatter/linter for the cmake extra)
+        neocmakelsp
+        cmake-format
+        cmake-lint
 
-      # astro LSP, and the eslint LSP
-      astro-language-server
-      vscode-langservers-extracted
+        # astro LSP, and the eslint LSP
+        astro-language-server
+        vscode-langservers-extracted
 
-      # tailwind LSP
-      tailwindcss-language-server
-    ];
+        # tailwind LSP
+        tailwindcss-language-server
+        # luau (no LazyVim extra). luau-lsp.nvim runs the server itself.
+        luau-lsp
+        # nixpkgs builds stylua with Luau support; LazyVim would otherwise fetch it via mason
+        stylua
+      ]
+      ++ lib.optionals (luauPlatform == "roblox") [
+        # luau-lsp.nvim generates sourcemap.json with rojo for Rojo projects
+        pkgs.rojo
+      ];
 
     config = {
       keymaps = ''
@@ -151,7 +165,8 @@ in {
           on_colors = lib.generators.mkLuaInline (
             let
               c = config.lib.stylix.colors.withHashtag;
-            in ''
+            in
+            ''
               function(colors)
                 colors.bg = "${c.base00}"
                 colors.bg_dark = "${c.base01}"
@@ -244,10 +259,15 @@ in {
           '';
         };
       };
+      luau = inputs.lazyvim.lib.lazyConfig {
+        plugin = "lopi-py/luau-lsp.nvim";
+        opts.platform.type = luauPlatform;
+      };
       conform = inputs.lazyvim.lib.lazyConfig {
         plugin = "stevearc/conform.nvim";
         opts.formatters_by_ft = {
-          cmake = ["cmake_format"];
+          cmake = [ "cmake_format" ];
+          luau = [ "stylua" ];
         };
       };
     };
