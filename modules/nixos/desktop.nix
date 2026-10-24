@@ -6,22 +6,25 @@
 }:
 {
   programs.hyprland.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services = {
+    desktopManager.plasma6.enable = true;
 
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    theme = "pixie";
-    package = lib.mkForce pkgs.kdePackages.sddm;
-    extraPackages = [
-      pkgs.kdePackages.qtsvg
-      pkgs.kdePackages.qtdeclarative
-      pkgs.kdePackages.qt5compat
-    ];
-    settings.Theme.CursorTheme = "breeze_cursors";
+    displayManager = {
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+        theme = "pixie";
+        package = lib.mkForce pkgs.kdePackages.sddm;
+        extraPackages = [
+          pkgs.kdePackages.qtsvg
+          pkgs.kdePackages.qtdeclarative
+          pkgs.kdePackages.qt5compat
+        ];
+        settings.Theme.CursorTheme = "breeze_cursors";
+      };
+      defaultSession = "hyprland";
+    };
   };
-  services.displayManager.defaultSession = "hyprland";
-
   environment.systemPackages = [
     (inputs.pixie-sddm.packages.${pkgs.stdenv.hostPlatform.system}.pixie-sddm.override {
       background = ../../assets/sddm.png;
