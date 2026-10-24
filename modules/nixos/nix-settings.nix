@@ -1,10 +1,13 @@
 { pkgs, ... }:
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.gc = {
     automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
+    dates = "daily";
+    options = "--delete-older-than 14d";
   };
   nixpkgs.config.allowUnfree = true;
 
@@ -12,7 +15,7 @@
     git
     pciutils
     tree
-    vim 
+    vim
     wget
   ];
 }
