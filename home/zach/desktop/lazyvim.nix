@@ -12,6 +12,8 @@ let
     ln -s ${astroLs}/packages/language-tools/ts-plugin $out/node_modules/@astrojs/ts-plugin
   '';
 
+  codelldb = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+
   fallbackTsdk = "${pkgs.vscode-langservers-extracted}/lib/extensions/node_modules/typescript/lib";
   luauPlatform = "standard";
 in
@@ -82,6 +84,10 @@ in
           enable = true;
           installDependencies = true;
         };
+      };
+
+      dap = {
+        core.enable = true;
       };
     };
 
@@ -269,6 +275,44 @@ in
           cmake = [ "cmake_format" ];
           luau = [ "stylua" ];
         };
+      };
+      cmake = inputs.lazyvim.lib.lazyConfig {
+        plugin = "Civitasv/cmake-tools.nvim";
+        keys = lib.generators.mkLuaInline ''
+          {
+            { "<leader>mg", "<cmd>CMakeGenerate<cr>", desc = "CMake Generate" },
+            { "<leader>mb", "<cmd>CMakeBuild<cr>", desc = "CMake Build" },
+            { "<leader>md", "<cmd>CMakeDebug<cr>", desc = "CMake Debug" },
+            { "<leader>mt", "<cmd>CMakeSelectLaunchTarget<cr>", desc = "Select Launch Target" },
+            { "<leader>mT", "<cmd>CMakeSelectBuildType<cr>", desc = "Select Build Type" },
+          }
+        '';
+        opts = {
+          cmake_build_directory = "build";
+          cmake_dap_configuration = {
+            name = "cpp";
+            type = "codelldb";
+            request = "launch";
+            stopOnEntry = false;
+          };
+        };
+      };
+      dap = inputs.lazyvim.lib.lazyConfig {
+        plugin = "mfussenegger/nvim-dap";
+        opts = lib.generators.mkLuaInline ''
+          function()
+            local dap = require("dap")
+            dap.adapters.codelldb = {
+              type = "server",
+              host = "127.0.0.1",
+              port = "''${port}",
+              executable = {
+                command = "${codelldb}",
+                args = { "--port", "''${port}" },
+              },
+            }
+          end
+        '';
       };
     };
   };
