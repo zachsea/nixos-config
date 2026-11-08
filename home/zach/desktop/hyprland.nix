@@ -28,14 +28,14 @@
 
       monitor = [
         {
-          output = "DP-1";
+          output = "DP-3";
           mode = "1920x1080@279.86";
           position = "1920x0";
           scale = 1;
           vrr = 1;
         }
         {
-          output = "DP-3";
+          output = "DP-2";
           mode = "1920x1080@239.76";
           position = "0x0";
           scale = 1;
@@ -46,52 +46,52 @@
       workspace_rule = [
         {
           workspace = "1";
-          monitor = "DP-1";
+          monitor = "DP-3";
           persistent = true;
         }
         {
           workspace = "2";
-          monitor = "DP-1";
+          monitor = "DP-3";
           persistent = true;
         }
         {
           workspace = "3";
-          monitor = "DP-1";
+          monitor = "DP-3";
           persistent = true;
         }
         {
           workspace = "4";
-          monitor = "DP-1";
+          monitor = "DP-3";
           persistent = true;
         }
         {
           workspace = "5";
-          monitor = "DP-1";
+          monitor = "DP-3";
           persistent = true;
         }
         {
           workspace = "6";
-          monitor = "DP-1";
+          monitor = "DP-3";
           persistent = true;
         }
         {
           workspace = "7";
-          monitor = "DP-1";
+          monitor = "DP-3";
           persistent = true;
         }
         {
           workspace = "8";
-          monitor = "DP-3";
+          monitor = "DP-2";
           persistent = true;
         }
         {
           workspace = "9";
-          monitor = "DP-3";
+          monitor = "DP-2";
           persistent = true;
         }
         {
           workspace = "10";
-          monitor = "DP-3";
+          monitor = "DP-2";
           persistent = true;
         }
       ];
