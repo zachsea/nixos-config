@@ -3,6 +3,9 @@
   programs.mpv = {
     enable = true;
     config = {
+      ao = "pipewire";
+      pipewire-buffer = 3;
+
       vo = "gpu-next";
       gpu-context = "auto";
       profile = "high-quality";
