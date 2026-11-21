@@ -29,6 +29,10 @@
       };
 
       initContent = ''
+        if [[ -o interactive ]]; then
+          fastfetch
+        fi
+
         twitch() {
           if [ -z "$1" ]; then echo "Usage: twitch <username>"; return 1; fi
           setsid streamlink "twitch.tv/$1" >/dev/null 2>&1 &
