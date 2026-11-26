@@ -11,22 +11,22 @@
         name = "Noto Serif";
       };
       sansSerif = {
-        package = pkgs.noto-fonts;
-        name = "Noto Sans";
+        package = pkgs.rubik;
+        name = "Rubik";
       };
       monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMono Nerd Font";
+        package = pkgs.maple-mono.NF;
+        name = "Maple Mono NF";
       };
       emoji = {
-        package = pkgs.noto-fonts-emoji;
+        package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
       };
       sizes = {
-        applications = 10;
-        terminal = 11;
-        desktop = 10;
-        popups = 10;
+        applications = 10.5;
+        terminal = 11.5;
+        desktop = 10.5;
+        popups = 10.5;
       };
     };
     opacity = {
@@ -39,6 +39,8 @@
     };
     targets = {
       btop.enable = true;
+      fontconfig.enable = true;
+      font-packages.enable = true;
       ghostty.enable = true;
       gtk = {
         enable = true;

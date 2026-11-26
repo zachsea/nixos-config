@@ -22,6 +22,7 @@
     ../../modules/nixos/razer.nix
     ../../modules/nixos/smartctl.nix
     ../../modules/nixos/usb.nix
+    ../../modules/nixos/fonts.nix
   ];
 
   networking.hostName = "fumo";
