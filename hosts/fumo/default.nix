@@ -1,4 +1,12 @@
 { inputs, stateVersion, ... }:
+let
+  host = {
+    monitors = {
+      primary = "DP-3";
+      secondary = "DP-2";
+    };
+  };
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -33,7 +41,10 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit stateVersion; };
+    extraSpecialArgs = {
+      inherit (host) monitors;
+      inherit stateVersion;
+    };
     sharedModules = [
       inputs.nix-flatpak.homeManagerModules.nix-flatpak
       inputs.stylix.homeModules.stylix

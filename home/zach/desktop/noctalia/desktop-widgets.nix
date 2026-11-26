@@ -1,3 +1,4 @@
+{ monitors, ... }:
 {
   programs.noctalia.settings.desktop_widgets = {
     schema_version = 2;
@@ -20,7 +21,7 @@
         cx = 960.0;
         cy = 900.0;
         enabled = false;
-        output = "DP-1";
+        output = monitors.primary;
         placement_height = 1080.0;
         placement_width = 1920.0;
         rotation = 0.0;
@@ -40,7 +41,7 @@
         box_width = 368.0;
         cx = 232.0;
         cy = 120.0;
-        output = "DP-1";
+        output = monitors.primary;
         placement_height = 1080.0;
         placement_width = 1920.0;
         rotation = 0.0;
@@ -59,7 +60,7 @@
         box_width = 384.0;
         cx = 250.0;
         cy = 192.0;
-        output = "DP-1";
+        output = monitors.primary;
         placement_height = 1080.0;
         placement_width = 1920.0;
         rotation = 0.0;

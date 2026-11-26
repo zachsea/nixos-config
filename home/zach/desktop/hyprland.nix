@@ -1,5 +1,10 @@
 # binds currently live in ./hotkeys.nix
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  monitors,
+  ...
+}:
 {
   home.packages = with pkgs; [
     pwvucontrol
@@ -35,7 +40,7 @@
           vrr = 1;
         }
         {
-          output = "DP-2";
+          output = monitors.secondary;
           mode = "1920x1080@239.76";
           position = "0x0";
           scale = 1;
@@ -46,52 +51,52 @@
       workspace_rule = [
         {
           workspace = "1";
-          monitor = "DP-3";
+          monitor = monitors.primary;
           persistent = true;
         }
         {
           workspace = "2";
-          monitor = "DP-3";
+          monitor = monitors.primary;
           persistent = true;
         }
         {
           workspace = "3";
-          monitor = "DP-3";
+          monitor = monitors.primary;
           persistent = true;
         }
         {
           workspace = "4";
-          monitor = "DP-3";
+          monitor = monitors.primary;
           persistent = true;
         }
         {
           workspace = "5";
-          monitor = "DP-3";
+          monitor = monitors.primary;
           persistent = true;
         }
         {
           workspace = "6";
-          monitor = "DP-3";
+          monitor = monitors.primary;
           persistent = true;
         }
         {
           workspace = "7";
-          monitor = "DP-3";
+          monitor = monitors.primary;
           persistent = true;
         }
         {
           workspace = "8";
-          monitor = "DP-2";
+          monitor = monitors.secondary;
           persistent = true;
         }
         {
           workspace = "9";
-          monitor = "DP-2";
+          monitor = monitors.secondary;
           persistent = true;
         }
         {
           workspace = "10";
-          monitor = "DP-2";
+          monitor = monitors.secondary;
           persistent = true;
         }
       ];
