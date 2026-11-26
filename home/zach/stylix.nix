@@ -32,6 +32,11 @@
     opacity = {
       terminal = 0.95;
     };
+    cursor = {
+      package = pkgs.apple-cursor;
+      name = "macOS";
+      size = 24;
+    };
     targets = {
       btop.enable = true;
       ghostty.enable = true;
@@ -50,4 +55,7 @@
       yazi.enable = true;
     };
   };
+
+  # provide icons for KDE apps
+  qt.qt6ctSettings.Appearance.icon_theme = "breeze-dark";
 }

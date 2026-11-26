@@ -100,15 +100,4 @@ in
     (bind "CTRL + PRINT" (exec "noctalia msg screenshot-region"))
   ]
   ++ wsBinds;
-
-  programs.plasma = {
-    enable = true;
-    spectacle = {
-      shortcuts = {
-        captureEntireDesktop = "Print";
-        captureRectangularRegion = "Ctrl+Print";
-        recordRegion = "Ctrl+Shift+Print";
-      };
-    };
-  };
 }

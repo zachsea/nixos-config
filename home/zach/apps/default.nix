@@ -16,18 +16,22 @@ let
     "application/x-gzip"
     "application/x-7z-compressed"
     "application/x-rar"
+    "application/vnd.rar"
   ];
 in
 {
   imports = [
+    ./ark.nix
     ./aseprite.nix
     ./chatterino7.nix
     ./discord.nix
+    ./dolphin.nix
+    ./elisa.nix
     ./flatpak.nix
     ./fooyin.nix
     ./ghidra.nix
     ./google-chrome.nix
-    ./kde.nix
+    ./kolourpaint.nix
     ./libreoffice.nix
     ./mangohud.nix
     ./mpv.nix
