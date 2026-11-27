@@ -10,8 +10,8 @@
       };
 
       subpixel = {
-        rgba = "none";
-        lcdfilter = "default";
+        rgba = "rgb";
+        lcdfilter = "light";
       };
     };
   };
